@@ -1,3 +1,5 @@
+
+
 ### 使用composer进行安装
 ~~~
      composer require tp5er/tp5-databackup dev-master
@@ -28,6 +30,11 @@ $config=array(
 ### 实例化
 ~~~
  $db= new Backup($config);
+~~~
+
+### 文件命名规则，请严格遵守（温馨提示）
+~~~
+$file=['name'=>date('Ymd-His'),'part'=>1]
 ~~~
 
 ### 数据类表列表
