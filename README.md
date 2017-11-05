@@ -48,11 +48,14 @@ return $this->fetch('index',['list'=>$db->dataList()]);
 
 ### 备份表
 ~~~
- $start= $db->setFile($file)->backup($tables[$id], $start);
+ $tables="数据库表1";
+ $start= $db->setFile($file)->backup($tables[$id], 0);
+ 当$start返回0的时候就表示备份成功
 ~~~
 
 ### 导入表
 ~~~
+ $start=0;
  $start= $db->setFile($file)->import($start);
 ~~~
 
