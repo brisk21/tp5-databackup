@@ -62,7 +62,8 @@ class Backup
     public function setDbConn($dbconfig=[])
     {
         if (empty($dbconfig)) {
-            $this->dbconfig = Config::get('database'); 
+			$this->dbconfig = config('database'); 
+            //$this->dbconfig = Config::get('database'); 
         }else{
             $this->dbconfig=$dbconfig;
         }
@@ -70,7 +71,7 @@ class Backup
     }
     /**
      * 设置备份文件名
-     * @param String  $file  文件名字
+     * @param Array  $file  文件名字
      * @return object 
      */
     public function setFile($file=null)
