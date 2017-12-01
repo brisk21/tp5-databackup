@@ -313,7 +313,8 @@ class Backup
 
             //还有更多数据
             if($count > $start + 1000){
-                return array($start + 1000, $count);
+                //return array($start + 1000, $count);
+				return $this->backup($table,$start+1000);
             }
         }
         //备份下一表
