@@ -74,4 +74,5 @@ return $this->fetch('index',['list'=>$db->dataList()]);
     $db->optimize($tables)
 ~~~
 
+无论您是大神，还是小白都希望您们加群进行交流，共同学习共同进步。
 # 技术交流与bug提交QQ群：368683534!!!!
