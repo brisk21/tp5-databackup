@@ -1,4 +1,14 @@
 <?php
+// +----------------------------------------------------------------------
+// | ThinkPHP [ WE CAN DO IT JUST THINK ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2006-2016 http://thinkphp.cn All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+// +----------------------------------------------------------------------
+// | Author: tp5er <tp5er@qq.com>
+// | QQ Group: 368683534
+// +----------------------------------------------------------------------
 namespace tp5er;
 use think\Db;
 use think\Config;
@@ -196,6 +206,31 @@ class Backup
             throw new \Exception("{$time} Time parameter is incorrect");
         }
     }
+	
+	/**
+     * 下载备份
+     * @Author: 浪哥 <939881475@qq.com>
+     * @param string $time
+     * @return array|mixed|string
+     */
+    public function downloadFile($time)
+    {
+		$file = $this->getFile('time', $time);
+		$fileName = $file[0];
+        if (file_exists($fileName)) {
+            ob_end_clean();
+            header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Length: ' . filesize($fileName));
+            header('Content-Disposition: attachment; filename=' . basename($fileName));
+            readfile($fileName);
+        } else {
+            throw new \Exception("{$time} File is abnormal");
+        }
+    }
+	
+
     public function import($start){
         //还原数据
         $db =  self::connect();
@@ -320,6 +355,7 @@ class Backup
         //备份下一表
         return 0;
     }
+
     /**
      * 优化表
      * @param  String $tables 表名

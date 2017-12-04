@@ -64,6 +64,11 @@ return $this->fetch('index',['list'=>$db->dataList()]);
     $db->delFile($time);
 ~~~
 
+### 下载备份文件
+~~~
+    $db->downloadFile($time);
+~~~
+
 ### 修复表
 ~~~
     $db->repair($tables)
