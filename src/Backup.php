@@ -98,14 +98,18 @@ class Backup
         return Db::connect();
     }
     //数据库表列表
-    public function dataList($table = null)
+    public function dataList($table = null,$type=1)
     {
         $db = self::connect();
         if (is_null($table)) {
             $list = $db->query("SHOW TABLE STATUS");
         } else {
-             $list = $db->query("SHOW FULL COLUMNS FROM {$table}");
-             //$list = $db->query("show columns from {$table}");
+            if ($type) {
+                $list = $db->query("SHOW FULL COLUMNS FROM {$table}");
+            }else{
+                 $list = $db->query("show columns from {$table}");
+            }
+
         }
         return array_map('array_change_key_case', $list);
         //$list;
