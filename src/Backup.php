@@ -209,12 +209,13 @@ class Backup
      * 下载备份
      * @Author: 浪哥 <939881475@qq.com>
      * @param string $time
+     * @param integer $part
      * @return array|mixed|string
      */
-    public function downloadFile($time)
+    public function downloadFile($time, $part = 0)
     {
         $file = $this->getFile('time', $time);
-        $fileName = $file[0];
+        $fileName = $file[$part];
         if (file_exists($fileName)) {
             ob_end_clean();
             header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
