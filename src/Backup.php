@@ -403,7 +403,7 @@ class Backup
                 $this->fp = null;
                 $this->file['part']++;
                 session('backup_file', $this->file);
-                $this->create();
+                $this->Backup_Init();
             }
         } else {
             $backuppath = $this->config['path'];
