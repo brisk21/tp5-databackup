@@ -1,5 +1,4 @@
 
-
 ### 使用composer进行安装
 ~~~
      composer require tp5er/tp5-databackup dev-master
@@ -78,6 +77,14 @@ return $this->fetch('index',['list'=>$db->dataList()]);
 ~~~
     $db->optimize($tables)
 ~~~
+
+如果备份数据比较大的情况下，需要修改如下参数
+//默认php代码能够申请到的最大内存字节数就是134217728 bytes，如果代码执行的时候再需要更多的内存,根据情况定义指定字节数
+memory_limit = 1024M
+//默认php代码申请到的超时时间是20s，如果代码执行需要更长的时间，根据代码执行的超时时间定义版本运行超时时间
+max_execution_time =1000
+
+
 
 无论您是大神，还是小白都希望您们加群进行交流，共同学习共同进步。
 # 技术交流与bug提交QQ群：368683534!!!!
