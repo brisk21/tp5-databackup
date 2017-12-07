@@ -1,7 +1,6 @@
 {
     "name": "tp5er/tp5-databackup",
     "description": "Implement the database backup restore",    
-    "minimum-stability": "dev",
     "license": "MIT",
     "authors": [
         {
