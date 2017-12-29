@@ -45,6 +45,7 @@ return $this->fetch('index',['list'=>$db->dataList()]);
   return $this->fetch('importlist',['list'=>$db->fileList()]);
 ~~~
 
+
 ### 备份表
 ~~~
  $tables="数据库表1";
@@ -78,12 +79,27 @@ return $this->fetch('index',['list'=>$db->dataList()]);
     $db->optimize($tables)
 ~~~
 
+
+
+### 大数据备份采取措施1
+~~~
 如果备份数据比较大的情况下，需要修改如下参数
 //默认php代码能够申请到的最大内存字节数就是134217728 bytes，如果代码执行的时候再需要更多的内存,根据情况定义指定字节数
 memory_limit = 1024M
 //默认php代码申请到的超时时间是20s，如果代码执行需要更长的时间，根据代码执行的超时时间定义版本运行超时时间
 max_execution_time =1000
+~~~
 
+### 大数据备份采取措施2
+
+~~~
+    自由设置超时时间。支持连贯操作，该方法主要使用在表备份和还原中，防止备份还原和备份不完整
+    //备份
+    $time=0//表示不限制超时时间，直到程序结束，(慎用)
+    $db->setTimeout($time)->setFile($file)->backup($tables[$id], 0);
+    //还原
+    $db->setTimeout($time)->setFile($file)->import($start);
+~~~
 
 
 无论您是大神，还是小白都希望您们加群进行交流，共同学习共同进步。

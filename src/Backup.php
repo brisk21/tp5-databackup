@@ -4,7 +4,6 @@
 // | QQ Group: 368683534
 // +----------------------------------------------------------------------
 namespace tp5er;
-
 use think\Db;
 use think\Config;
 class Backup
@@ -24,6 +23,7 @@ class Backup
      * @var integer
      */
     private $size = 0;
+
     /**
      * 数据库配置
      * @var integer
@@ -58,6 +58,17 @@ class Backup
         if (!$this->checkPath($this->config['path'])) {
             throw new \Exception("The current directory is not writable");
         }
+    }
+    /**
+     * 设置脚本运行超时时间
+     * 0表示不限制，支持连贯操作
+     */
+    public function setTimeout($time=null)
+    {
+        if (!is_null($time)) {
+           set_time_limit($time)||ini_set("max_execution_time", $time);
+        }
+        return $this;
     }
     /**
      * 设置数据库连接必备参数
@@ -109,7 +120,6 @@ class Backup
             }else{
                  $list = $db->query("show columns from {$table}");
             }
-
         }
         return array_map('array_change_key_case', $list);
         //$list;
