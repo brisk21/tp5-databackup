@@ -1,13 +1,19 @@
 
 ### 使用composer进行安装
 ~~~
-     composer require tp5er/tp5-databackup dev-master
+	composer require tp5er/tp5-databackup
+	//或
+    composer require tp5er/tp5-databackup dev-master
 ~~~
 
 ### 使用composer update进行安装
 ~~~
     "require": {
         "tp5er/tp5-databackup": "dev-master"
+    },
+    //或
+    "require": {
+        "tp5er/tp5-databackup": "1.0.0"
     },
 ~~~
 
