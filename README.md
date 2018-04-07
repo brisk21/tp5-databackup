@@ -1,7 +1,7 @@
 
 ### 使用composer进行安装
 ~~~
-	composer require tp5er/tp5-databackup
+    composer require tp5er/tp5-databackup
 	//或
     composer require tp5er/tp5-databackup dev-master
 ~~~
@@ -21,6 +21,11 @@
 ~~~
 use \tp5er\Backup;
 ~~~
+
+### 参数说明
+$start：无论是备份还是还原只要一张表备份完成$start就是返回的0
+$file ：sql文件的名字，下面有名字命名规范，如果名字命令不规范，在展示列表中就会出现错误
+
 
 ### 配置文件
 ~~~
@@ -56,7 +61,7 @@ return $this->fetch('index',['list'=>$db->dataList()]);
 ~~~
  $tables="数据库表1";
  $start= $db->setFile($file)->backup($tables[$id], 0);
- 当$start返回0的时候就表示备份成功
+
 ~~~
 
 ### 导入表
