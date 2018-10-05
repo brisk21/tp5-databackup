@@ -1,4 +1,15 @@
 
+### Packagist 镜像使用方法
+方法一： 修改 composer 的全局配置文件（推荐方式）
+~~~
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+~~~
+修改当前项目的 composer.json 配置文件：
+~~~
+composer config repo.packagist composer https://packagist.phpcomposer.com
+~~~
+
+
 ### 使用composer进行安装
 ~~~
     composer require tp5er/tp5-databackup
