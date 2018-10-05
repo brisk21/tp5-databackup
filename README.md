@@ -4,7 +4,8 @@
 ~~~
 composer config -g repo.packagist composer https://packagist.phpcomposer.com
 ~~~
-修改当前项目的 composer.json 配置文件：
+方法二： 修改当前项目的 composer.json 配置文件：
+
 ~~~
 composer config repo.packagist composer https://packagist.phpcomposer.com
 ~~~
