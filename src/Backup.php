@@ -238,16 +238,17 @@ class Backup
             throw new \Exception("{$time} File is abnormal");
         }
     }
-    public function import($start)
+    public function import($start,$time)
     {
         //还原数据
         $db = self::connect();
+        $this->file=$this->getFile('time',$time);
         if ($this->config['compress']) {
-            $gz = gzopen($this->file[1], 'r');
+            $gz = gzopen($this->file[0], 'r');
             $size = 0;
         } else {
-            $size = filesize($this->file[1]);
-            $gz = fopen($this->file[1], 'r');
+            $size = filesize($this->file[0]);
+            $gz = fopen($this->file[0], 'r');
         }
         $sql = '';
         if ($start) {
