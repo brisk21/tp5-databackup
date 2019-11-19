@@ -3,7 +3,7 @@
 // | Author: tp5er <tp5er@qq.com>
 // | QQ Group: 368683534
 // +----------------------------------------------------------------------
-namespace tp5er;
+namespace xianrenqh;
 use think\Db;
 use think\Config;
 class Backup
