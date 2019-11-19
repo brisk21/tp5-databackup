@@ -16,20 +16,17 @@ composer config repo.packagist composer https://packagist.phpcomposer.com
 
 ### 使用composer进行安装
 ~~~
-    composer require tp5er/tp5-databackup
+    composer require xianrenqh/tp5-databackup
 	//或
-    composer require tp5er/tp5-databackup dev-master
+    composer require xianrenqh/tp5-databackup dev-master
 ~~~
 
 ### 使用composer update进行安装
 ~~~
     "require": {
-        "tp5er/tp5-databackup": "dev-master"
+        "xianrenqh/tp5-databackup": "dev-master"
     },
-    //或
-    "require": {
-        "tp5er/tp5-databackup": "1.0.0"
-    },
+ 
 ~~~
 
 ### 引入类文件
