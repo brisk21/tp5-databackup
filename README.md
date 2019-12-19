@@ -31,7 +31,7 @@ composer config repo.packagist composer https://packagist.phpcomposer.com
 
 ### 引入类文件
 ~~~
-use \tp5er\Backup;
+use \xianrenqh\Backup;
 ~~~
 
 ### 参数说明
