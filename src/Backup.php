@@ -5,7 +5,7 @@
 // +----------------------------------------------------------------------
 namespace xianrenqh;
 use think\Db;
-use think\Config;
+use think\App;
 class Backup
 {
     /**
@@ -106,7 +106,11 @@ class Backup
     //数据类连接
     public static function connect()
     {
-        return Db::connect();
+        if(APP::VERSION>="6.0.0"){
+            return \think\facade\Db::connect();
+        }else{
+            return Db::connect();
+        }
     }
     //数据库表列表
     public function dataList($table = null,$type=1)
